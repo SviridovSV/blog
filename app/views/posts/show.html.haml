@@ -1,0 +1,23 @@
+%p
+  %strong Title:
+  = @post.title
+%div
+  = image_tag(@post.picture_url) if @post.picture?
+%p
+  %strong Text:
+  = @post.content
+%p
+  %strong Viewed:
+  = @post.counter.to_s + ' times'
+= link_to 'Back to list', root_path
+%p
+  %strong Similar posts
+  - similar_posts.each do |sim_post|
+    %p
+      %strong Title:
+      = sim_post.title
+    %p
+      %strong Text:
+      = short_content(sim_post)
+      = link_to 'Read more', post_path(sim_post)
+

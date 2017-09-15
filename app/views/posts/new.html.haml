@@ -1,0 +1,12 @@
+= form_for @post do |f|
+  %div
+    = f.label :title
+    = f.text_field :title
+  %div
+    = image_tag(@post.picture_url) if @post.picture?
+    = f.file_field :picture
+    = f.hidden_field :picture_cache
+  %div
+    = f.label :content
+    = f.text_area :content
+  = f.submit

@@ -1,0 +1,11 @@
+= link_to "Create copywriter", signup_path
+= link_to "Create post", new_post_path
+%br
+- all_copywriters.each do |user_cw|
+  %p Email
+  = user_cw.email
+  %p Password
+  = user_cw.password
+  = link_to "Destroy", user_path(user_cw), method: :delete, data: { confirm: "Are you sure?" }
+  %br
+
